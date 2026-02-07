@@ -61,14 +61,18 @@ jobs:
     
     - name: Upload trained model
       uses: actions/upload-artifact@v3
+      if: always()
       with:
         name: trained-model-${{ github.run_number }}
         path: model.pkl
         retention-days: 30
+        if-no-files-found: warn
     
     - name: Upload results JSON
       uses: actions/upload-artifact@v3
+      if: always()
       with:
         name: results-${{ github.run_number }}
         path: results.json
         retention-days: 30
+        if-no-files-found: warn
