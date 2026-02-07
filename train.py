@@ -25,13 +25,13 @@ from sklearn.ensemble import RandomForestRegressor
 # ============================================================================
 
 # Model Selection: 'LinearRegression', 'Ridge', 'Lasso', or 'RandomForest'
-MODEL_TYPE = 'Lasso'
+MODEL_TYPE = 'RandomForest'
 
 # Train-Test Split
 TEST_SIZE = 0.20
 
 # Preprocessing
-USE_SCALING = True  # True to apply StandardScaler
+USE_SCALING = False  # True to apply StandardScaler
 
 # Feature Selection
 FEATURE_SELECTION = None  # None for all features, or integer (e.g., 6) for top K features
@@ -40,7 +40,7 @@ FEATURE_SELECTION = None  # None for all features, or integer (e.g., 6) for top 
 ALPHA = 0.1  # Regularization strength for Ridge/Lasso
 
 # Hyperparameters for RandomForest
-RF_N_ESTIMATORS = 100
+RF_N_ESTIMATORS = 500
 RF_MAX_DEPTH = None  # None for unlimited
 RF_RANDOM_STATE = 1
 
