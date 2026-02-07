@@ -16,7 +16,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.feature_selection import SelectKBest, f_regression
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
 from sklearn.ensemble import RandomForestRegressor
 
 # ============================================================================
@@ -24,19 +24,22 @@ from sklearn.ensemble import RandomForestRegressor
 # Modify these parameters for each experiment
 # ============================================================================
 
-# Model Selection: 'LinearRegression' or 'RandomForest'
-MODEL_TYPE = 'LinearRegression'
+# Model Selection: 'LinearRegression', 'Ridge', 'Lasso', or 'RandomForest'
+MODEL_TYPE = 'Ridge'
 
 # Train-Test Split
-TEST_SIZE = 0.30  # 0.30 = 70/30 split
+TEST_SIZE = 0.20
 
 # Preprocessing
 USE_SCALING = True  # True to apply StandardScaler
 
 # Feature Selection
-FEATURE_SELECTION = None  # None for all features, or integer (e.g., 8) for top K features
+FEATURE_SELECTION = None  # None for all features, or integer (e.g., 6) for top K features
 
-# Hyperparameters (RandomForest only)
+# Hyperparameters for Ridge/Lasso
+ALPHA = 1.0  # Regularization strength for Ridge/Lasso
+
+# Hyperparameters for RandomForest
 RF_N_ESTIMATORS = 100
 RF_MAX_DEPTH = None  # None for unlimited
 RF_RANDOM_STATE = 1
@@ -96,6 +99,12 @@ def train_model(X_train, y_train):
     if MODEL_TYPE == 'LinearRegression':
         print("Model: Linear Regression")
         model = LinearRegression()
+    elif MODEL_TYPE == 'Ridge':
+        print(f"Model: Ridge Regression (alpha={ALPHA})")
+        model = Ridge(alpha=ALPHA, random_state=1)
+    elif MODEL_TYPE == 'Lasso':
+        print(f"Model: Lasso Regression (alpha={ALPHA})")
+        model = Lasso(alpha=ALPHA, random_state=1)
     elif MODEL_TYPE == 'RandomForest':
         print(f"Model: Random Forest (n_estimators={RF_N_ESTIMATORS}, max_depth={RF_MAX_DEPTH})")
         model = RandomForestRegressor(
@@ -146,6 +155,7 @@ def save_artifacts(model, mse, r2):
             "test_size": TEST_SIZE,
             "use_scaling": USE_SCALING,
             "feature_selection": FEATURE_SELECTION,
+            "alpha": ALPHA if MODEL_TYPE in ['Ridge', 'Lasso'] else None,
             "rf_n_estimators": RF_N_ESTIMATORS if MODEL_TYPE == 'RandomForest' else None,
             "rf_max_depth": RF_MAX_DEPTH if MODEL_TYPE == 'RandomForest' else None
         },
