@@ -25,7 +25,7 @@ from sklearn.ensemble import RandomForestRegressor
 # ============================================================================
 
 # Model Selection: 'LinearRegression', 'Ridge', 'Lasso', or 'RandomForest'
-MODEL_TYPE = 'Ridge'
+MODEL_TYPE = 'Lasso'
 
 # Train-Test Split
 TEST_SIZE = 0.20
@@ -37,7 +37,7 @@ USE_SCALING = True  # True to apply StandardScaler
 FEATURE_SELECTION = None  # None for all features, or integer (e.g., 6) for top K features
 
 # Hyperparameters for Ridge/Lasso
-ALPHA = 10.0  # Regularization strength for Ridge/Lasso
+ALPHA = 0.1  # Regularization strength for Ridge/Lasso
 
 # Hyperparameters for RandomForest
 RF_N_ESTIMATORS = 100
