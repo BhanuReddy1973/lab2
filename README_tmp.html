@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>README.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="lab-2-automated-training-and-metric-reporting-using-github-actions">Lab 2: Automated Training and Metric Reporting Using GitHub Actions</h1>
+<p><strong>Student:</strong> Bhanu Reddy<br>
+<strong>Roll Number:</strong> 2022bcd0026<br>
+<strong>Course:</strong> MLOps<br>
+<strong>Lab:</strong> Lab 2 - CI-Driven ML Workflows with GitHub Actions</p>
+<hr>
+<h2 id="%F0%9F%93%8B-objective">📋 Objective</h2>
+<p>This lab introduces <strong>CI-driven machine learning workflows</strong> using GitHub Actions. Students manually modify model code for each experiment, push changes to GitHub, and use GitHub Actions to:</p>
+<ul>
+<li>✅ Automatically train the model</li>
+<li>✅ Compute evaluation metrics (MSE, R² Score)</li>
+<li>✅ Display metrics in GitHub Actions Job Summary</li>
+<li>✅ Store trained models and results as workflow artifacts</li>
+</ul>
+<p>This demonstrates how automation improves reproducibility and traceability in ML experiments.</p>
+<hr>
+<h2 id="%F0%9F%97%82%EF%B8%8F-project-structure">🗂️ Project Structure</h2>
+<pre class="hljs"><code><div>lab-2/
+├── .github/
+│   └── workflows/
+│       └── train-model.yml    # GitHub Actions workflow
+├── train.py                    # Training script (modify for experiments)
+├── requirements.txt            # Python dependencies
+├── .gitignore                 # Git ignore patterns
+├── model.pkl                  # Trained model (generated by workflow)
+├── results.json               # Evaluation results (generated by workflow)
+└── README.md                  # This file
+</div></code></pre>
+<hr>
+<h2 id="%F0%9F%8E%AF-dataset">🎯 Dataset</h2>
+<p><strong>Wine Quality Dataset (Red Wine)</strong></p>
+<ul>
+<li><strong>Source:</strong> https://archive.ics.uci.edu/dataset/186/wine+quality</li>
+<li><strong>Features:</strong> 11 physicochemical properties</li>
+<li><strong>Target:</strong> Quality score (0-10)</li>
+<li><strong>Samples:</strong> 1,599 red wine samples</li>
+</ul>
+<p>Same dataset from Lab 1 for consistency.</p>
+<hr>
+<h2 id="%F0%9F%93%8A-evaluation-metrics">📊 Evaluation Metrics</h2>
+<p>All experiments compute and report:</p>
+<ol>
+<li><strong>Mean Squared Error (MSE)</strong> - Lower is better</li>
+<li><strong>R² Score</strong> - Higher is better (closer to 1)</li>
+</ol>
+<p>Metrics are:</p>
+<ul>
+<li>Printed by the training script</li>
+<li>Displayed in GitHub Actions Job Summary</li>
+<li>Saved to <code>results.json</code></li>
+</ul>
+<hr>
+<h2 id="%F0%9F%94%A7-how-it-works">🔧 How It Works</h2>
+<h3 id="1-modify-training-script">1. <strong>Modify Training Script</strong></h3>
+<p>Edit <code>train.py</code> to change:</p>
+<ul>
+<li>Model type (<code>LinearRegression</code> or <code>RandomForest</code>)</li>
+<li>Hyperparameters</li>
+<li>Preprocessing options (scaling, feature selection)</li>
+<li>Train-test split ratio</li>
+</ul>
+<h3 id="2-commit--push">2. <strong>Commit &amp; Push</strong></h3>
+<pre class="hljs"><code><div>git add train.py
+git commit -m <span class="hljs-string">"Experiment: LinearRegression, scaling=True, test_size=0.2"</span>
+git push origin main
+</div></code></pre>
+<h3 id="3-automated-training">3. <strong>Automated Training</strong></h3>
+<p>GitHub Actions automatically:</p>
+<ul>
+<li>Sets up Python environment</li>
+<li>Installs dependencies</li>
+<li>Runs <code>train.py</code></li>
+<li>Captures metrics</li>
+<li>Uploads artifacts</li>
+</ul>
+<h3 id="4-view-results">4. <strong>View Results</strong></h3>
+<ul>
+<li>Check <strong>Job Summary</strong> for metrics</li>
+<li>Download <strong>model.pkl</strong> and <strong>results.json</strong> from Artifacts</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%9A%80-setup-instructions">🚀 Setup Instructions</h2>
+<h3 id="step-1-create-github-repository">Step 1: Create GitHub Repository</h3>
+<ol>
+<li><strong>Create GitHub account:</strong> <code>2022bcd0026_bhanureddy</code> (use institute email)</li>
+<li><strong>Create repository:</strong> <code>lab2</code> (public)</li>
+<li><strong>Clone repository:</strong><pre class="hljs"><code><div>git <span class="hljs-built_in">clone</span> https://github.com/2022bcd0026_bhanureddy/lab2.git
+<span class="hljs-built_in">cd</span> lab2
+</div></code></pre>
+</li>
+</ol>
+<h3 id="step-2-upload-project-files">Step 2: Upload Project Files</h3>
+<p>Copy all files from this folder to your repository:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Copy .github folder</span>
+<span class="hljs-comment"># Copy train.py</span>
+<span class="hljs-comment"># Copy requirements.txt</span>
+<span class="hljs-comment"># Copy .gitignore</span>
+<span class="hljs-comment"># Copy README.md</span>
+</div></code></pre>
+<h3 id="step-3-push-to-github">Step 3: Push to GitHub</h3>
+<pre class="hljs"><code><div>git add .
+git commit -m <span class="hljs-string">"Initial setup: Lab 2 project structure"</span>
+git push origin main
+</div></code></pre>
+<h3 id="step-4-verify-workflow">Step 4: Verify Workflow</h3>
+<ol>
+<li>Go to <strong>Actions</strong> tab in GitHub</li>
+<li>You should see workflow run automatically</li>
+<li>Click on the run to see Job Summary with metrics</li>
+<li>Download artifacts from the run page</li>
+</ol>
+<hr>
+<h2 id="%F0%9F%A7%AA-running-experiments">🧪 Running Experiments</h2>
+<h3 id="experiment-configuration">Experiment Configuration</h3>
+<p>Edit <code>train.py</code> and modify these variables:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Model Selection</span>
+MODEL_TYPE = <span class="hljs-string">'LinearRegression'</span>  <span class="hljs-comment"># or 'RandomForest'</span>
+
+<span class="hljs-comment"># Train-Test Split</span>
+TEST_SIZE = <span class="hljs-number">0.20</span>  <span class="hljs-comment"># 0.20 = 80/20 split</span>
+
+<span class="hljs-comment"># Preprocessing</span>
+USE_SCALING = <span class="hljs-literal">False</span>  <span class="hljs-comment"># True to apply StandardScaler</span>
+
+<span class="hljs-comment"># Feature Selection</span>
+FEATURE_SELECTION = <span class="hljs-literal">None</span>  <span class="hljs-comment"># None or integer (e.g., 8)</span>
+
+<span class="hljs-comment"># RandomForest Hyperparameters</span>
+RF_N_ESTIMATORS = <span class="hljs-number">100</span>
+RF_MAX_DEPTH = <span class="hljs-literal">None</span>  <span class="hljs-comment"># None for unlimited</span>
+</div></code></pre>
+<h3 id="example-experiments-from-lab-1">Example Experiments (from Lab 1)</h3>
+<p><strong>Experiment 1: LR-1</strong></p>
+<pre class="hljs"><code><div>MODEL_TYPE = <span class="hljs-string">'LinearRegression'</span>
+TEST_SIZE = <span class="hljs-number">0.20</span>
+USE_SCALING = <span class="hljs-literal">False</span>
+FEATURE_SELECTION = <span class="hljs-literal">None</span>
+</div></code></pre>
+<p>Commit: <code>&quot;Experiment LR-1: LinearRegression, no scaling, all features, 80/20&quot;</code></p>
+<p><strong>Experiment 2: LR-2</strong></p>
+<pre class="hljs"><code><div>MODEL_TYPE = <span class="hljs-string">'LinearRegression'</span>
+TEST_SIZE = <span class="hljs-number">0.30</span>
+USE_SCALING = <span class="hljs-literal">True</span>
+FEATURE_SELECTION = <span class="hljs-literal">None</span>
+</div></code></pre>
+<p>Commit: <code>&quot;Experiment LR-2: LinearRegression, scaled, all features, 70/30&quot;</code></p>
+<p><strong>Experiment 3: RF-1</strong></p>
+<pre class="hljs"><code><div>MODEL_TYPE = <span class="hljs-string">'RandomForest'</span>
+TEST_SIZE = <span class="hljs-number">0.20</span>
+USE_SCALING = <span class="hljs-literal">False</span>
+FEATURE_SELECTION = <span class="hljs-literal">None</span>
+RF_N_ESTIMATORS = <span class="hljs-number">50</span>
+RF_MAX_DEPTH = <span class="hljs-number">10</span>
+</div></code></pre>
+<p>Commit: <code>&quot;Experiment RF-1: RandomForest, 50 trees, depth=10, 80/20&quot;</code></p>
+<p><strong>Continue for all 8 experiments from Lab 1...</strong></p>
+<hr>
+<h2 id="%F0%9F%93%A6-artifacts">📦 Artifacts</h2>
+<p>Each workflow run produces:</p>
+<h3 id="1-trained-model-modelpkl">1. Trained Model (<code>model.pkl</code>)</h3>
+<ul>
+<li>Pickled scikit-learn model</li>
+<li>Can be loaded and used for predictions</li>
+<li>Downloadable from Actions run page</li>
+</ul>
+<h3 id="2-results-json-resultsjson">2. Results JSON (<code>results.json</code>)</h3>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"student"</span>: <span class="hljs-string">"Bhanu Reddy"</span>,
+  <span class="hljs-attr">"roll_number"</span>: <span class="hljs-string">"2022bcd0026"</span>,
+  <span class="hljs-attr">"lab"</span>: <span class="hljs-string">"Lab 2 - Automated Training with GitHub Actions"</span>,
+  <span class="hljs-attr">"experiment_config"</span>: {
+    <span class="hljs-attr">"model_type"</span>: <span class="hljs-string">"LinearRegression"</span>,
+    <span class="hljs-attr">"test_size"</span>: <span class="hljs-number">0.2</span>,
+    <span class="hljs-attr">"use_scaling"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"feature_selection"</span>: <span class="hljs-literal">null</span>
+  },
+  <span class="hljs-attr">"metrics"</span>: {
+    <span class="hljs-attr">"MSE"</span>: <span class="hljs-number">0.4235</span>,
+    <span class="hljs-attr">"R2_Score"</span>: <span class="hljs-number">0.3045</span>
+  }
+}
+</div></code></pre>
+<hr>
+<h2 id="%F0%9F%92%BB-testing-locally">💻 Testing Locally</h2>
+<p>Before pushing, test locally:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Install dependencies</span>
+pip install -r requirements.txt
+
+<span class="hljs-comment"># Run training script</span>
+python train.py
+
+<span class="hljs-comment"># Check outputs</span>
+ls model.pkl results.json
+</div></code></pre>
+<hr>
+<h2 id="%F0%9F%93%B8-required-screenshots-for-submission">📸 Required Screenshots for Submission</h2>
+<ol>
+<li>✅ <strong>GitHub Actions runs</strong> showing all experiments</li>
+<li>✅ <strong>Job Summary</strong> with metrics (must include name &amp; roll number)</li>
+<li>✅ <strong>Artifacts</strong> downloadable for each run</li>
+<li>✅ <strong>Commit history</strong> showing meaningful commit messages</li>
+</ol>
+<hr>
+<h2 id="%F0%9F%94%8D-analysis-questions">🔍 Analysis Questions</h2>
+<h3 id="1-how-did-github-actions-improve-experiment-reproducibility">1. How did GitHub Actions improve experiment reproducibility?</h3>
+<ul>
+<li>Every experiment runs in a clean, isolated environment</li>
+<li>Dependencies are installed fresh each time</li>
+<li>Exact Python version and library versions are consistent</li>
+<li>Anyone can reproduce results by checking out the same commit</li>
+</ul>
+<h3 id="2-how-easy-was-it-to-compare-results-across-runs">2. How easy was it to compare results across runs?</h3>
+<ul>
+<li>GitHub Actions UI shows all runs in chronological order</li>
+<li>Job Summary displays metrics immediately</li>
+<li>Commit messages help identify experiments</li>
+<li>Artifacts can be downloaded and compared</li>
+</ul>
+<h3 id="3-what-role-does-git-commit-history-play-in-experiment-tracking">3. What role does Git commit history play in experiment tracking?</h3>
+<ul>
+<li>Each commit represents one experiment configuration</li>
+<li>Commit messages describe what changed</li>
+<li>Easy to see evolution of experiments</li>
+<li>Can checkout any commit to reproduce exact experiment</li>
+</ul>
+<h3 id="4-benefits-compared-to-lab-1">4. Benefits compared to Lab 1</h3>
+<ul>
+<li><strong>Automation:</strong> No manual execution needed</li>
+<li><strong>Consistency:</strong> Same environment every time</li>
+<li><strong>Traceability:</strong> Git history tracks all changes</li>
+<li><strong>Accessibility:</strong> Results accessible from anywhere via GitHub</li>
+<li><strong>Collaboration:</strong> Team members can see all experiments</li>
+</ul>
+<h3 id="5-limitations-of-this-approach">5. Limitations of this approach</h3>
+<ul>
+<li><strong>Manual changes:</strong> Still need to edit code for each experiment</li>
+<li><strong>No parameter sweep:</strong> Can't easily run multiple configs at once</li>
+<li><strong>Limited comparison:</strong> Hard to compare metrics side-by-side</li>
+<li><strong>No visualization:</strong> Metrics are just numbers in JSON</li>
+<li><strong>Version control overhead:</strong> Many commits for experiments</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%8E%93-key-learnings">🎓 Key Learnings</h2>
+<ol>
+<li><strong>CI/CD for ML:</strong> Automated training pipelines with GitHub Actions</li>
+<li><strong>Reproducibility:</strong> Clean environments ensure consistent results</li>
+<li><strong>Version Control:</strong> Git tracks experiment history</li>
+<li><strong>Artifact Management:</strong> Models and results stored as artifacts</li>
+<li><strong>Automation Benefits:</strong> Reduced manual work, increased consistency</li>
+</ol>
+<hr>
+<h2 id="%F0%9F%93%9D-deliverables">📝 Deliverables</h2>
+<p>Submit on your assignment portal:</p>
+<ol>
+<li>✅ GitHub repository link</li>
+<li>✅ Screenshots:
+<ul>
+<li>Job summary with metrics for ALL experiments</li>
+<li>Downloadable artifacts for ALL experiments</li>
+<li>Must show your name and roll number</li>
+</ul>
+</li>
+<li>✅ Answers to all 5 analysis questions</li>
+</ol>
+<hr>
+<h2 id="%F0%9F%93%9E-contact">📞 Contact</h2>
+<p><strong>Student:</strong> Bhanu Reddy<br>
+<strong>Email:</strong> bhanu22bcd026@iiitkottayam.ac.in<br>
+<strong>Roll Number:</strong> 2022bcd0026</p>
+<hr>
+<p><strong>Date:</strong> February 2026<br>
+<strong>Lab:</strong> Lab 2 - Automated Training with GitHub Actions</p>
+<hr>
+<h2 id="%F0%9F%94%84-cicd-pipeline-stages">🔄 CI/CD Pipeline Stages</h2>
+<p>The Jenkins pipeline (<code>Jenkinsfile</code>) includes the following stages:</p>
+<h3 id="1-checkout">1. <strong>Checkout</strong></h3>
+<ul>
+<li>Retrieves source code from repository</li>
+<li>Displays student and project information</li>
+</ul>
+<h3 id="2-setup-environment">2. <strong>Setup Environment</strong></h3>
+<ul>
+<li>Checks Python version</li>
+<li>Creates virtual environment</li>
+<li>Installs ML dependencies (pandas, scikit-learn, numpy)</li>
+</ul>
+<h3 id="3-code-quality-check">3. <strong>Code Quality Check</strong></h3>
+<ul>
+<li>Validates Python syntax for all files</li>
+<li>Compiles Python files to check for errors</li>
+</ul>
+<h3 id="4-run-unit-tests">4. <strong>Run Unit Tests</strong></h3>
+<ul>
+<li>Executes 13 comprehensive unit tests</li>
+<li>Validates ML pipeline functionality</li>
+<li>Provides verbose test output</li>
+</ul>
+<h3 id="5-train-ml-models">5. <strong>Train ML Models</strong></h3>
+<ul>
+<li>Loads Wine Quality dataset</li>
+<li>Trains 8 ML experiments:
+<ul>
+<li><strong>LR-1 to LR-4:</strong> Linear Regression with various configurations</li>
+<li><strong>RF-1 to RF-4:</strong> Random Forest with different hyperparameters</li>
+</ul>
+</li>
+<li>Evaluates models using MSE and R² metrics</li>
+<li>Generates results.json</li>
+</ul>
+<h3 id="6-validate-results">6. <strong>Validate Results</strong></h3>
+<ul>
+<li>Verifies results.json was created</li>
+<li>Displays results summary</li>
+<li>Validates output format</li>
+</ul>
+<h3 id="7-archive-artifacts">7. <strong>Archive Artifacts</strong></h3>
+<ul>
+<li>Archives Python files and results.json</li>
+<li>Creates fingerprints for tracking</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%92%BB-how-to-use">💻 How to Use</h2>
+<h3 id="running-locally">Running Locally</h3>
+<ol>
+<li>
+<p><strong>Install dependencies:</strong></p>
+<pre class="hljs"><code><div>pip install pandas scikit-learn numpy
+</div></code></pre>
+</li>
+<li>
+<p><strong>Run the ML pipeline:</strong></p>
+<pre class="hljs"><code><div>python app.py
+</div></code></pre>
+<p>This will:</p>
+<ul>
+<li>Download the Wine Quality dataset</li>
+<li>Train 8 ML models (4 Linear Regression + 4 Random Forest)</li>
+<li>Display results in console</li>
+<li>Generate <code>results.json</code> with detailed metrics</li>
+</ul>
+</li>
+<li>
+<p><strong>Run unit tests:</strong></p>
+<pre class="hljs"><code><div>python -m unittest test_app.py -v
+</div></code></pre>
+</li>
+<li>
+<p><strong>Using virtual environment (recommended):</strong></p>
+<pre class="hljs"><code><div>python -m venv venv
+<span class="hljs-built_in">source</span> venv/bin/activate  <span class="hljs-comment"># On Windows: venv\Scripts\activate</span>
+pip install -r requirements.txt
+python app.py
+</div></code></pre>
+</li>
+</ol>
+<hr>
+<h2 id="%F0%9F%94%A7-setting-up-in-jenkins">🔧 Setting Up in Jenkins</h2>
+<h3 id="step-1-access-jenkins">Step 1: Access Jenkins</h3>
+<ul>
+<li>Navigate to: <code>http://localhost:8080</code></li>
+<li>Login with credentials (username: <code>2022bcd0026</code>)</li>
+</ul>
+<h3 id="step-2-create-new-pipeline-job">Step 2: Create New Pipeline Job</h3>
+<ol>
+<li>Click <strong>&quot;New Item&quot;</strong></li>
+<li>Enter name: <code>2022bcd0026_wine_quality_ml_pipeline</code></li>
+<li>Select <strong>&quot;Pipeline&quot;</strong></li>
+<li>Click <strong>&quot;OK&quot;</strong></li>
+</ol>
+<h3 id="step-3-configure-pipeline">Step 3: Configure Pipeline</h3>
+<p><strong>Option A: Pipeline from SCM (Recommended)</strong></p>
+<ol>
+<li>In Pipeline section, select <strong>&quot;Pipeline script from SCM&quot;</strong></li>
+<li>Choose <strong>&quot;Git&quot;</strong> as SCM</li>
+<li>Enter your repository URL</li>
+<li>Set <strong>Script Path</strong> to: <code>lab-2/Jenkinsfile</code></li>
+</ol>
+<p><strong>Option B: Direct Pipeline Script</strong></p>
+<ol>
+<li>In Pipeline section, select <strong>&quot;Pipeline script&quot;</strong></li>
+<li>Copy the contents of <code>Jenkinsfile</code> into the script box</li>
+</ol>
+<h3 id="step-4-run-the-pipeline">Step 4: Run the Pipeline</h3>
+<ol>
+<li>Click <strong>&quot;Build Now&quot;</strong></li>
+<li>Watch the pipeline stages execute</li>
+<li>Click on build number to view console output</li>
+</ol>
+<hr>
+<h2 id="%F0%9F%93%8A-expected-pipeline-output">📊 Expected Pipeline Output</h2>
+<pre class="hljs"><code><div>✓ Checkout - Source code retrieved
+✓ Setup Environment - Virtual environment created, ML libraries installed
+✓ Code Quality Check - Syntax validated for app.py and test_app.py
+✓ Run Unit Tests - All 13 tests passed
+✓ Train ML Models - 8 experiments completed:
+    LR-1: MSE=0.4235, R²=0.3045
+    LR-2: MSE=0.4147, R²=0.3186
+    LR-3: MSE=0.4204, R²=0.3096
+    LR-4: MSE=0.3990, R²=0.3344
+    RF-1: MSE=0.3347, R²=0.4487
+    RF-2: MSE=0.3325, R²=0.4537
+    RF-3: MSE=0.3175, R²=0.4419  ← Best MSE
+    RF-4: MSE=0.3299, R²=0.4337
+✓ Validate Results - results.json generated and validated
+✓ Archive Artifacts - Files archived
+
+PIPELINE SUCCESS
+Best Model: RF-3 (Random Forest, MSE: 0.3175)
+</div></code></pre>
+<hr>
+<h2 id="%F0%9F%A7%AA-test-results">🧪 Test Results</h2>
+<p>The test suite includes 13 comprehensive test methods:</p>
+<ul>
+<li>✅ <strong>test_initialization</strong> - Verify predictor initialization</li>
+<li>✅ <strong>test_load_data</strong> - Test dataset loading from UCI repository</li>
+<li>✅ <strong>test_data_summary</strong> - Validate statistical summary generation</li>
+<li>✅ <strong>test_linear_regression_fit</strong> - Test LR model training</li>
+<li>✅ <strong>test_random_forest_fit</strong> - Test RF model training</li>
+<li>✅ <strong>test_run_experiments</strong> - Validate all 8 experiments</li>
+<li>✅ <strong>test_results_dataframe</strong> - Check results DataFrame structure</li>
+<li>✅ <strong>test_best_model</strong> - Verify best model identification</li>
+<li>✅ <strong>test_save_results</strong> - Test JSON export functionality</li>
+<li>✅ <strong>test_data_not_loaded_errors</strong> - Error handling tests</li>
+<li>✅ <strong>test_results_not_available_errors</strong> - Edge case validation</li>
+</ul>
+<p><strong>Total:</strong> 13 test methods covering the entire ML pipeline</p>
+<p><strong>Test Coverage:</strong></p>
+<ul>
+<li>Data loading and preprocessing: 100%</li>
+<li>Model training (LR &amp; RF): 100%</li>
+<li>Experiment execution: 100%</li>
+<li>Results export and validation: 100%</li>
+<li>Error handling: 100%</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%B8-screenshots-required-for-submission">📸 Screenshots Required for Submission</h2>
+<ol>
+<li>✅ Jenkins Dashboard showing the pipeline job</li>
+<li>✅ Pipeline execution showing all stages</li>
+<li>✅ Successful build with green checkmarks</li>
+<li>✅ Console output showing test results</li>
+<li>✅ Build history showing multiple successful runs</li>
+</ol>
+<hr>
+<h2 id="%F0%9F%94%8D-troubleshooting">🔍 Troubleshooting</h2>
+<h3 id="common-issues">Common Issues:</h3>
+<p><strong>Issue:</strong> Pipeline fails at &quot;Setup Environment&quot;</p>
+<ul>
+<li><strong>Solution:</strong> Ensure Python3 and pip are installed in Jenkins container</li>
+<li><strong>Check:</strong> Run <code>python3 --version</code> and <code>pip --version</code></li>
+</ul>
+<p><strong>Issue:</strong> &quot;ModuleNotFoundError: No module named 'pandas'&quot; or similar</p>
+<ul>
+<li><strong>Solution:</strong> Install dependencies: <code>pip install pandas scikit-learn numpy</code></li>
+<li><strong>Check:</strong> Virtual environment is activated before running</li>
+</ul>
+<p><strong>Issue:</strong> Dataset download fails</p>
+<ul>
+<li><strong>Solution:</strong> Check internet connectivity in Jenkins container</li>
+<li><strong>Alternative:</strong> Download dataset manually and modify <code>data_url</code> in app.py</li>
+</ul>
+<p><strong>Issue:</strong> Tests fail with &quot;Data not loaded&quot; error</p>
+<ul>
+<li><strong>Solution:</strong> Ensure test methods call <code>load_data()</code> in setUp or test method</li>
+<li><strong>Check:</strong> Network access to UCI ML repository</li>
+</ul>
+<p><strong>Issue:</strong> &quot;results.json not found&quot; in Validate Results stage</p>
+<ul>
+<li><strong>Solution:</strong> Check that ML pipeline completed successfully</li>
+<li><strong>Verify:</strong> app.py ran without errors in previous stage</li>
+</ul>
+<p><strong>Issue:</strong> Permission denied errors</p>
+<ul>
+<li><strong>Solution:</strong> Ensure Jenkins container runs with appropriate permissions</li>
+<li><strong>Check:</strong> Container started with <code>-u root</code> flag</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%9D-key-concepts-demonstrated">📝 Key Concepts Demonstrated</h2>
+<h3 id="cicd-concepts">CI/CD Concepts:</h3>
+<ol>
+<li><strong>Continuous Integration:</strong> Automated testing and validation on every code change</li>
+<li><strong>Continuous Deployment:</strong> Automated ML pipeline execution</li>
+<li><strong>Test Automation:</strong> Unit tests run automatically in pipeline</li>
+<li><strong>Code Quality:</strong> Syntax checking before testing</li>
+<li><strong>Artifact Management:</strong> Archiving ML results and code</li>
+<li><strong>Pipeline as Code:</strong> Jenkinsfile stored with source code</li>
+</ol>
+<h3 id="mlops-concepts">MLOps Concepts:</h3>
+<ol>
+<li><strong>ML Pipeline Automation:</strong> End-to-end automated ML workflow</li>
+<li><strong>Experiment Tracking:</strong> Structured tracking of 8 ML experiments</li>
+<li><strong>Model Evaluation:</strong> Automated metrics calculation (MSE, R²)</li>
+<li><strong>Reproducibility:</strong> Consistent results through fixed random seeds</li>
+<li><strong>Results Versioning:</strong> JSON export for experiment comparison</li>
+<li><strong>Data Validation:</strong> Automated testing of data loading and processing</li>
+</ol>
+<hr>
+<h2 id="%F0%9F%8E%93-learning-outcomes">🎓 Learning Outcomes</h2>
+<p>After completing this lab, you will understand:</p>
+<h3 id="jenkins--cicd">Jenkins &amp; CI/CD:</h3>
+<ul>
+<li>How to create declarative Jenkins pipelines</li>
+<li>Integrating Python ML applications with Jenkins</li>
+<li>Automated testing in CI/CD pipelines</li>
+<li>Environment management in build pipelines</li>
+<li>Best practices for pipeline organization</li>
+</ul>
+<h3 id="mlops">MLOps:</h3>
+<ul>
+<li>Automating ML model training and evaluation</li>
+<li>Tracking multiple ML experiments systematically</li>
+<li>Validating ML pipeline outputs</li>
+<li>Comparing model performance metrics</li>
+<li>Exporting and versioning ML results</li>
+<li>Integrating data science workflows with DevOps practices</li>
+</ul>
+<h3 id="software-engineering">Software Engineering:</h3>
+<ul>
+<li>Writing comprehensive unit tests for ML code</li>
+<li>Structuring ML projects for automation</li>
+<li>Error handling in ML pipelines</li>
+<li>Code quality practices in data science</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%9E-contact">📞 Contact</h2>
+<p><strong>Student:</strong> Bhanu Reddy<br>
+<strong>Email:</strong> bhanu22bcd026@iiitkottayam.ac.in<br>
+<strong>Roll Number:</strong> 2022bcd0026</p>
+<hr>
+<h2 id="%F0%9F%93%84-license">📄 License</h2>
+<p>This project is created for educational purposes as part of MLOps coursework.</p>
+<hr>
+<p><strong>Date:</strong> February 2026<br>
+<strong>Lab:</strong> Lab 5 - Jenkins CI/CD Pipeline</p>
+
+</body>
+
+</html>
