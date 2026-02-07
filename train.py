@@ -28,17 +28,17 @@ from sklearn.ensemble import RandomForestRegressor
 MODEL_TYPE = 'LinearRegression'
 
 # Train-Test Split
-TEST_SIZE = 0.20
+TEST_SIZE = 0.30  # 0.30 = 70/30 split
 
 # Preprocessing
-USE_SCALING = False  # True to apply StandardScaler
+USE_SCALING = True  # True to apply StandardScaler
 
 # Feature Selection
 FEATURE_SELECTION = None  # None for all features, or integer (e.g., 8) for top K features
 
 # Hyperparameters (RandomForest only)
 RF_N_ESTIMATORS = 100
-RF_MAX_DEPTH = None
+RF_MAX_DEPTH = None  # None for unlimited
 RF_RANDOM_STATE = 1
 
 # ============================================================================
